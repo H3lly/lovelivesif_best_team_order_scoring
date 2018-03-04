@@ -11,7 +11,6 @@ int typeCmp(char *type, char *user_input){
 }
 
 int isEqual(char *a, char* b){
-
 	
 }
 int inputIsValid(int i){
