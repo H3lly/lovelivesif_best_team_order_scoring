@@ -29,6 +29,14 @@ int inputIsValid(int i){
 
 int main(void){
 	double *heart = malloc(9*sizeof(double));
+	for(int i=0; i<9; ++i){
+		printf("please input value %i\n", i);
+		double tmp;
+		scanf("%lf", &tmp);
+		heart[i] = tmp;
+	}
+	printf("value = %.2f", heart[5]);
+	/*
 	heart[0] = 52.5;
 	heart[1] = 72.25;
 	heart[2] = 86.0;
@@ -38,7 +46,7 @@ int main(void){
 	heart[6] = 89.25;
 	heart[7] = 74.25;
 	heart[8] = 54.75;
-
+	*/
 	//double *tmp = malloc(9*sizeof(double));
 
 	/*int *order = malloc(9*sizeof(int));
@@ -48,18 +56,26 @@ int main(void){
 
 	//int *final = malloc(9*sizeof(int));
 
+	void afficher(int *tab, int n){
+		for(int i=0; i<n; ++i)
+			printf("%d", tab[i]);
+		printf("\n");
+	}
+
+	int *checked = malloc(9*sizeof(int));
+	for (int i=0; i<9; i++) checked[i] = 0;
 
 	for(int i=0; i<9; ++i){
-		double res = 200;
-		int indice = -1;
+		double res = 100.0;
+		int indice;
 		for(int j=0; j<9; ++j){
-			if(heart[j]<res && heart[j]!=600.0){
+			if(heart[j]<res && checked[j]==0){
 				indice = j;
 				res = heart[j];
 				
 			}
-			heart[indice] = 600.0;
 		}
+		checked[indice] = 1;
 		printf ("|%i, %.2f|\n", indice, res);
 	}
 
