@@ -39,31 +39,34 @@ int main(void){
 	heart[7] = 74.25;
 	heart[8] = 54.75;
 
-	double *tmp = malloc(9*sizeof(double));
+	//double *tmp = malloc(9*sizeof(double));
 
-	int *order = malloc(9*sizeof(int));
+	/*int *order = malloc(9*sizeof(int));
 	for(int i =0; i<9; ++i){
 		order[i] = i;
-	}
+	}*/
+
+	//int *final = malloc(9*sizeof(int));
 
 
 	for(int i=0; i<9; ++i){
 		double res = 200;
-		printf("%d", i);
+		int indice = -1;
 		for(int j=0; j<9; ++j){
-			if(heart[j]<res){
-				order[i] = j;
-				tmp[i] = heart[j];
+			if(heart[j]<res && heart[j]!=600.0){
+				indice = j;
 				res = heart[j];
-				//printf("%2f ", heart[j]);
-			}	
+				
+			}
+			heart[indice] = 600.0;
 		}
+		printf ("|%i, %.2f|\n", indice, res);
 	}
 
-	for(int i=0; i<9; ++i){
-		printf("| %.2f [%i] ", tmp[i], order[i]);
+	/*for(int i=0; i<9; ++i){
+		printf("| %.2f [%i] ", tmp[i], final[i]);
 	}
-	printf("\n");
+	printf("\n");*/
 
 	
 
